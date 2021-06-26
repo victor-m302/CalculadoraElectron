@@ -7,10 +7,15 @@ const {app, BrowserWindow} = electron
 let mainWindow
 
 app.on('ready', function(){
-    mainWindow = new BrowserWindow({ width: 330, height: 540 })
+    mainWindow = new BrowserWindow({ 
+        width: 330,
+        height: 540,
+        transparent: true,
+        vibrancy: 'ultra-dark',
+    })
     
     mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'mainWindow.html'),
+        pathname: path.join(__dirname, 'mainW.html'),
         protocol: 'file:',
         slashes: true
     }))
