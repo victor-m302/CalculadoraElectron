@@ -75,7 +75,8 @@ input{
     background-color: #151616;
     color: white;
     padding: 20px;
-    font-size: 1.5rem;
+    font-size: 18px;
+    font-family: 'Segoe UI semibold', 'Arial Black', sans-serif;
     outline: none;
     cursor: pointer;
     border: 1px solid #151616;
@@ -83,7 +84,7 @@ input{
 
 .calculator button:hover{
     background-color: #4C4C4C;
-    color: black;
+    color: white;
 }
 
 /* #060606*/
