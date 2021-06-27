@@ -1,4 +1,5 @@
 
+let vetor = []
 const wrapper = document.getElementById('wrapper');
 
 wrapper.addEventListener('click', (event) => {
@@ -8,13 +9,26 @@ wrapper.addEventListener('click', (event) => {
   }
 //console.log(event.target.id);
 //console.log(event.target.value) //ex. 8
-
-input_display(event.target.value)
+vetor.push(event.target.value)
+input_display()
 })
 
 
-function input_display(number){
-    document.getElementById('input_calc').value = number
+function input_display(){
+    let whatever = vetor
+    let number = null
+    // verifica virgula
+    // mostrar todos os numeros inseridos
+    console.log(whatever);
+    if(whatever.length <= 0){
+        document.getElementById('input_calc').value = 0
+    }
+    else{
+        number =  parseInt(whatever.join(''));
+        document.getElementById('input_calc').value = number
+
+    }
+
 }
 
 function clear_all(){ //C -> limpa todo o input e display1
