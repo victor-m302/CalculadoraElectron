@@ -6,29 +6,29 @@
 </head>
 <body>
     <div class="calculator">
-        <p id="display1" class="displayMath">2+2</p>
-        <input id="input_calc" type="number" class="display" placeholder="0"/>
+        <p id="display1" class="displayMath"></p>
+        <div id="input_calc" type="number" class="display">0</div>
         <div id='wrapper' class="calculator-buttons">
-            <button>⌦</button>
-            <button onclick="clear_input()">CE</button>
-            <button onclick="clear_all()">C</button>
-            <button>/</button>
-            <button class="numbers" value="7">7</button>
-            <button class="numbers" value="8">8</button>
-            <button class="numbers" value="9">9</button>
-            <button>*</button>
-            <button class="numbers" value="4">4</button>
-            <button class="numbers" value="5">5</button>
-            <button class="numbers" value="6">6</button>
-            <button>-</button>
-            <button class="numbers" value="1">1</button>
-            <button class="numbers" value="2">2</button>
-            <button class="numbers" value="3">3</button>
-            <button >+</button>
-            <button >±</button>
-            <button class="numbers" value="0">0</button>
-            <button >,</button>
-            <button id="equal">=</button>
+            <button onclick="back()">⌦</button>
+            <button onclick="clean('C')">CE</button>
+            <button onclick="clean('CE')">C</button>
+            <button onclick="symbol_('/')">÷</button>
+            <button onclick="number_(7)" class="numbers" value="7">7</button>
+            <button onclick="number_(8)" class="numbers" value="8">8</button>
+            <button onclick="number_(9)" class="numbers" value="9">9</button>
+            <button onclick="symbol_('*')"> ×</button>
+            <button onclick="number_(4)" class="numbers" value="4">4</button>
+            <button onclick="number_(5)" class="numbers" value="5">5</button>
+            <button onclick="number_(6)" class="numbers" value="6">6</button>
+            <button onclick="symbol_('-')"> -</button>
+            <button onclick="number_(1)" class="numbers" value="1">1</button>
+            <button onclick="number_(2)" class="numbers" value="2">2</button>
+            <button onclick="number_(3)" class="numbers" value="3">3</button>
+            <button onclick="symbol_('+')">+</button>
+            <button onclick="symbol_('*(-1)')">±</button>
+            <button onclick="number_(0)" class="numbers" value="0">0</button>
+            <button onclick="comma()" class="comma">,</button>
+            <button onclick="equal()" id="equal">=</button>
         </div>
     </div>
     <script src="index.js"></script>

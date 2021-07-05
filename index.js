@@ -1,72 +1,94 @@
-
-let vetor = []
-let input_area = document.getElementById('input_calc')
-const wrapper = document.getElementById('wrapper');
+let virgula = false
+let novo_num = false
 
 
-wrapper.addEventListener('click', (event) => {
-  const isButton = event.target.nodeName === 'BUTTON';
-  const isNumbers = event.target.className === 'numbers';
-  if (!isButton) {
-    return;
-  }
-  if(isNumbers){
-    vetor.push(event.target.value)
-    input_display()
-  }
-  else{
-      console.log("no");
-  }
-//console.log(event.target.id);
-//console.log(event.target.value) //ex. 8
 
-})
-
-  
-/* event listener */
-input_area.addEventListener('change', getInputValue);
-    
-/* getInputValue */
-function getInputValue(){
-    vetor.push(input_area.value)   
-    console.log(vetor);
+function getMainDisplay(){
+    return document.getElementById('input_calc').innerHTML 
 }
 
-function input_display(){
-    let whatever = vetor
-    let number = null
-    // verifica virgula
-    // mostrar todos os numeros inseridos
-    console.log(whatever);
-    if(whatever.length <= 0){
-        document.getElementById('input_calc').value = 0
+function addMainDisplay(param){
+    document.getElementById('input_calc').innerHTML += param
+}
+
+function setMainDisplay(param){
+    let txt = ''+param
+    console.log(txt);
+    let pxp = eval(txt).toFixed(5);
+    document.getElementById('input_calc').innerHTML = txt.replace('.',',');
+}
+
+
+function getCalcDisplay(){
+    return document.getElementById('display1').innerHTML
+}
+
+function addCalcDisplay(param){
+    document.getElementById('display1').innerHTML += param
+}
+
+function setCalcDisplay(param){
+    document.getElementById('display1').innerHTML = param
+}
+
+function placeholderZero(){
+    if(numero_para_mostrar == "0"){
+        numero_para_mostrar = "0"
+    }
+}
+
+function number_(num){
+    if ( getMainDisplay()[0] == 0 && num != 0){
+        setMainDisplay(getMainDisplay().substring(1))
+    }
+    if(novo_num){
+        document.getElementById('input_calc').innerHTML = num;
+        novo_num = false
+        virgula = false
     }
     else{
-        number =  parseInt(whatever.join(''));
-        document.getElementById('input_calc').value = number
+        document.getElementById('input_calc').innerHTML += num;
     }
-
 }
 
-function clear_all(){ //C -> limpa todo o input e display1
-    document.getElementById('display1').innerHTML = 0
-    document.getElementById('input_calc').value = 0
-    vetor=[]
+function symbol_(num){
+    setCalcDisplay(getMainDisplay()+num)
+    novo_num = true
 }
 
-function clear_input(){ //limpa somente o input
-    document.getElementById('input_calc').value = 0
-    vetor=[]
+function comma(){
+    if(!virgula){
+        document.getElementById('input_calc').innerHTML += ','
+        virgula = true
+    }
+    else{
+        console.log('virgula existe');
+    }
+} 
+
+
+function equal(){
+    temp = getMainDisplay() //get input
+    addCalcDisplay(temp) // add no Calc
+    exp = getCalcDisplay()
+    if(exp){
+        let txt = exp.replace(/,/g,'.');
+        setMainDisplay( txt );
+    }
+    else{
+        console.log('error');
+    }
+}
+function clean(param){
+    if(param == 'C'){
+
+    }
+    else{
+
+    }
 }
 
-function number_0(){
-    console.log('0')
-}
-
-function number_1(){
-    
-}
-
-function number_2(){
-    
+function back(){
+    let size = getMainDisplay().length
+    setMainDisplay( getMainDisplay().substring(0, size-1) );
 }
